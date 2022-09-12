@@ -1,0 +1,79 @@
+<script language="javascript">
+    /*
+    Diketahui:
+    pegawai: Ridwan
+    jabatan: manager
+    status: menikah 
+    Tugas: 
+    Cetak Data Pegawai berbentuk tabel:
+    Judul Kolom gunakan thead
+    Data2 gunakan tbody 
+    Nama Pegawai, Jabatan, Status, 
+    Gaji Pokok(if): Manager=>15 jt, Asisten Manager=>10 jt, Staff=>5 jt 
+    Tunjangan Jabatan: 15% dari gapok
+    BPJS: 10% dari gapok
+    Tunjangan Keluarga (ternary): dilihat dari status yg sudah menikah =>20% dari gapok
+    Total Gaji: jumlahlahkan seluruh element gaji (gunakan tfoot)
+    Format pengumpulan tugas:
+    Disimpan di githubnya masing2:
+    contoh:
+    buat repo baru (javascript) -> file tugas di push di repo tsb
+    lalu linknya dlm txt di assign ke LMS
+    */
+
+    const pegawai = "Ridwan";
+    const jabatan = "Manager";
+    const status = "Menikah";
+    let Gpokok = ''
+    if (jabatan == "Manager") {
+        Gpokok = 15000000
+    } else if (jabatan == "Asisten Manager") {
+        Gpokok = 10000000
+    } else {
+        Gpokok = 5000000
+    }
+
+    let T_Jabatan = Gpokok * (15 / 100);
+    let bpjs = Gpokok * (10 / 100);
+    let T_Keluarga = (status == "Menikah") ? Gpokok * (20 / 100) : 0;
+    const ttl_gaji = Gpokok + T_Jabatan + bpjs + T_Keluarga;
+
+    document.write(`
+    <h3>Tugas 1 Javascript (Fahmi Aji Kurnia/MSIB/2005040059/Ummagelang/Reza)</h3>
+    Nama Pegawai : ${pegawai} <br/>
+    Jabatan : ${jabatan} <br/>
+    Status : ${status} <br/>
+    
+    <table border="1">
+        <thead bgcolor="blue">
+            <tr>
+                <td>DATA</td>
+                <td>KETERANGAN</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Gaji Pokok</td>
+                <td>RP ${Gpokok} </td>
+            </tr>
+            <tr>
+                <td>Tunjangan Jabatan</td>
+                <td>RP ${T_Jabatan} </td>
+            </tr>
+            <tr>
+                <td>BPJS</td>
+                <td>RP ${bpjs} </td>
+            </tr>
+            <tr>
+                <td>Tunjangan Keluarga</td>
+                <td>RP ${T_Keluarga} </td>
+            </tr>
+        </tbody>
+        <tfoot bgcolor="red">
+            <tr>
+                <td>Total Gaji</td>
+                <td>RP ${ttl_gaji} </td>
+            </tr>
+        </tfoot>
+    </table>`);
+</script>
