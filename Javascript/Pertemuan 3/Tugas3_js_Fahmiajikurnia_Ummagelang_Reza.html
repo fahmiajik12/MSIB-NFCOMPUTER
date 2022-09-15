@@ -1,0 +1,92 @@
+<script language="javascript">
+    let m1 = { nama: "Budi", nilai: 75 };
+    let m2 = { nama: "Bedu", nilai: 55 };
+    let m3 = { nama: "Dedi", nilai: 95 };
+    let m4 = { nama: "Dudi", nilai: 88 };
+    let m5 = { nama: "Deden", nilai: 25 };
+    let m6 = { nama: "Desi", nilai: 65 };
+
+    let mahasiswa = [m1, m2, m3, m4, m5, m6];
+</script>
+<style>
+    body {
+        background-color: 334854;
+    }
+</style>
+
+<br>
+<h3 align="center" style="color:white">Daftar Nilai Mahasiswa</h3>
+<table align="center" border="1" cellpadding="25%" width="50%">
+    <thead>
+        <tr bgcolor="efecea">
+            <th>NO.</th>
+            <th>NAMA</th>
+            <th>NILAI</th>
+            <th>KETERANGAN</th>
+            <th>GRADE</th>
+            <th>PREDIKAT</th>
+        </tr>
+    </thead>
+    <tbody>
+        <script language="javascript">
+            let no = 1;
+            for (mhs of mahasiswa) {
+
+                let ket = (mhs.nilai >= 60) ? "Lulus" : "Gagal";
+
+                var grade, predikat, warna;
+                if (mhs.nilai >= 85 && mhs.nilai <= 100) {
+                    grade = "A";
+                } else if (mhs.nilai >= 75 && mhs.nilai <= 84) {
+                    grade = "B";
+                } else if (mhs.nilai >= 65 && mhs.nilai <= 74) {
+                    grade = "C";
+                } else if (mhs.nilai >= 55 && mhs.nilai <= 64) {
+                    grade = "D";
+                }
+                else {
+                    grade = "E";
+                }
+
+                switch (grade) {
+                    case "A":
+                        predikat = "Memuaskan";
+                        break;
+                    case "B":
+                        predikat = "Bagus";
+                        break;
+                    case "C":
+                        predikat = "Cukup";
+                        break;
+                    case "D":
+                        predikat = "Kurang";
+                        break;
+                    default:
+                        predikat = "Buruk";
+                        break;
+                }
+
+                warna = (no % 2 == 0) ? "e04462" : "f9c535";
+
+                document.write(`<tr bgcolor=${warna}>
+                        <td align="center">${no++}</td>
+                        <td align="center">${mhs.nama}</td>
+                        <td align="center">${mhs.nilai}</td>
+                        <td align="center">${ket}</td>
+                        <td align="center">${grade}</td>
+                        <td align="center">${predikat}</td>
+                    </tr>`);
+            }
+        </script>
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-primary" align="center" role="alert" style="color:white">
+            Design By: Fahmi Aji Kurnia
+            <br>
+            <a href="https://www.instagram.com/fahmiaji.k/" target="_blank" style="color:white"></i>
+                Instagram</a>
+            <a href="https://github.com/fahmiajik12" target="_blank" style="color:white"><i class="bi bi-github"></i>
+                Github</a>
+        </div>
